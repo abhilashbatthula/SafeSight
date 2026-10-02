@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+node_modules
+**/node_modules
+**/.next
+**/dist
+.venv
+.runtime
+models
+playwright-report
+test-results
+**/__pycache__
+
+**/.next-production/
+
+**/next-env.d.ts

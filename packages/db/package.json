@@ -1,0 +1,19 @@
+{
+  "name": "@safesight/db",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.3",
+    "pg": "8.16.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.7",
+    "@types/pg": "8.15.6"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "safesight",
+  "private": true,
+  "packageManager": "pnpm@12.8.1",
+  "engines": {
+    "node": ">=24.21.0 <25"
+  },
+  "scripts": {
+    "setup:dev": "bash scripts/setup-dev.sh",
+    "dev": "node --env-file-if-exists=.env scripts/dev.mjs",
+    "db:generate": "pnpm --filter @safesight/db generate",
+    "db:migrate": "tsx --env-file-if-exists=.env scripts/migrate.ts",
+    "db:seed": "tsx --env-file-if-exists=.env scripts/seed.ts",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "pnpm -r typecheck && tsc -p tsconfig.scripts.json",
+    "test": "tsx --env-file-if-exists=.env --test tests/*.test.ts && .venv/bin/python -m unittest discover -s services/inference/tests",
+    "test:e2e": "playwright test",
+    "build": "pnpm -r build",
+    "health": "node --env-file-if-exists=.env scripts/health.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.10.1",
+    "@types/pg": "8.15.6",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.3.8",
+    "jsqr": "1.4.0",
+    "prettier": "3.6.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.4"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.3",
+    "pg": "8.16.3",
+    "sharp": "0.35.5",
+    "zod": "4.1.12"
+  }
+}

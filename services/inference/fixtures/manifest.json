@@ -1,0 +1,172 @@
+{
+  "2e65c4526c2c092482a8a5de87da5aba62b2be63f74a77443cf06d1b258f9510": {
+    "name": "equipped",
+    "width": 800,
+    "height": 500,
+    "detections": [
+      {
+        "class": "person",
+        "confidence": 1.0,
+        "box": [
+          170,
+          90,
+          290,
+          430
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "helmet",
+        "confidence": 1.0,
+        "box": [
+          194,
+          103,
+          266,
+          160
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "vest",
+        "confidence": 1.0,
+        "box": [
+          190,
+          210,
+          270,
+          335
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "person",
+        "confidence": 1.0,
+        "box": [
+          490,
+          90,
+          610,
+          430
+        ],
+        "personId": "Person 2"
+      },
+      {
+        "class": "helmet",
+        "confidence": 1.0,
+        "box": [
+          514,
+          103,
+          586,
+          160
+        ],
+        "personId": "Person 2"
+      },
+      {
+        "class": "vest",
+        "confidence": 1.0,
+        "box": [
+          510,
+          210,
+          590,
+          335
+        ],
+        "personId": "Person 2"
+      }
+    ],
+    "findings": [
+      {
+        "personId": "Person 1",
+        "helmet": "detected",
+        "vest": "detected"
+      },
+      {
+        "personId": "Person 2",
+        "helmet": "detected",
+        "vest": "detected"
+      }
+    ]
+  },
+  "ce59c4872cea7d61c542438a9737ed232dc70a50312670f7ff15cfe53c8c00f8": {
+    "name": "review",
+    "width": 800,
+    "height": 500,
+    "detections": [
+      {
+        "class": "person",
+        "confidence": 1.0,
+        "box": [
+          170,
+          90,
+          290,
+          430
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "helmet",
+        "confidence": 1.0,
+        "box": [
+          194,
+          103,
+          266,
+          160
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "vest",
+        "confidence": 1.0,
+        "box": [
+          190,
+          210,
+          270,
+          335
+        ],
+        "personId": "Person 1"
+      },
+      {
+        "class": "person",
+        "confidence": 1.0,
+        "box": [
+          490,
+          90,
+          610,
+          430
+        ],
+        "personId": "Person 2"
+      },
+      {
+        "class": "no_helmet",
+        "confidence": 1.0,
+        "box": [
+          514,
+          103,
+          586,
+          160
+        ],
+        "personId": "Person 2"
+      },
+      {
+        "class": "vest",
+        "confidence": 1.0,
+        "box": [
+          510,
+          210,
+          590,
+          335
+        ],
+        "personId": "Person 2"
+      }
+    ],
+    "findings": [
+      {
+        "personId": "Person 1",
+        "helmet": "detected",
+        "vest": "detected"
+      },
+      {
+        "personId": "Person 2",
+        "helmet": "potential_missing",
+        "vest": "detected"
+      }
+    ]
+  }
+}
