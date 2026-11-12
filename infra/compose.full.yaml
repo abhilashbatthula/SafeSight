@@ -29,6 +29,8 @@ services:
       NODE_ENV: production
       APP_MODE: workspace
       APP_FACILITY_ID: ${APP_FACILITY_ID:-10000000-0000-4000-8000-000000000001}
+      WORKSPACE_NAME: ${WORKSPACE_NAME:-SafeSight Workspace}
+      WORKSPACE_TIMEZONE: ${WORKSPACE_TIMEZONE:-UTC}
       API_HOST: 0.0.0.0
       INFERENCE_URL: http://inference:8001
       INFERENCE_KEY: ${INFERENCE_KEY}
@@ -44,7 +46,7 @@ services:
       [
         'sh',
         '-c',
-        'pnpm exec tsx scripts/migrate.ts && pnpm --filter @safesight/api start',
+        'pnpm db:migrate && pnpm db:init && pnpm --filter @safesight/api start',
       ]
     volumes: ['uploads:/app/.runtime']
     depends_on:

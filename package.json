@@ -1,22 +1,35 @@
 {
   "name": "safesight",
+  "version": "1.0.0",
+  "description": "A photo inspection workspace for visible PPE inventories and preliminary machinery safety guidance.",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhilashbatthula/SafeSight.git"
+  },
+  "homepage": "https://github.com/abhilashbatthula/SafeSight#readme",
+  "bugs": {
+    "url": "https://github.com/abhilashbatthula/SafeSight/issues"
+  },
   "packageManager": "pnpm@12.8.1",
   "engines": {
     "node": ">=24.21.0 <25"
   },
   "scripts": {
     "setup:dev": "bash scripts/setup-dev.sh",
+    "setup:env": "python3 scripts/create-env.py",
     "dev": "node --env-file-if-exists=.env scripts/dev.mjs",
     "db:generate": "pnpm --filter @safesight/db generate",
     "db:migrate": "tsx --env-file-if-exists=.env scripts/migrate.ts",
-    "db:seed": "tsx --env-file-if-exists=.env scripts/seed.ts",
+    "db:init": "tsx --env-file-if-exists=.env scripts/init-workspace.ts",
+    "db:seed": "pnpm db:init",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "typecheck": "pnpm -r typecheck && tsc -p tsconfig.scripts.json",
     "test": "tsx --env-file-if-exists=.env --test tests/*.test.ts && .venv/bin/python -m unittest discover -s services/inference/tests && python3 -m unittest discover -s scripts/tests",
     "test:unit": "tsx --env-file-if-exists=.env --test tests/contracts.test.ts && .venv/bin/python -m unittest discover -s services/inference/tests && python3 -m unittest discover -s scripts/tests",
     "check:secrets": "python3 scripts/check-secrets.py --history",
+    "package:source": "python3 scripts/package-source.py",
     "test:e2e": "playwright test",
     "build": "pnpm -r build",
     "health": "node --env-file-if-exists=.env scripts/health.mjs"
