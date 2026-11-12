@@ -56,7 +56,7 @@ async function main() {
     new DocumentBuilder()
       .setTitle('SafeSight REST API')
       .setDescription(
-        'v1. HttpOnly cookie sessions; all mutations require same Origin and X-CSRF-Token from /auth/me. Environmental readings are simulated.',
+        'v1. HttpOnly cookie sessions; all mutations require same Origin and X-CSRF-Token from /auth/me. Image inspections and per-person equipment inventories.',
       )
       .setVersion('1.0.0')
       .addCookieAuth('safesight_session')

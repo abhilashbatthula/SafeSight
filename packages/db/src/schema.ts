@@ -91,7 +91,7 @@ export const sessions = pgTable(
   (t) => [
     check(
       'session_principal',
-      sql`(${t.userId} is not null) <> (${t.shareId} is not null)`,
+      sql`${t.userId} is null or ${t.shareId} is null`,
     ),
   ],
 );
@@ -148,15 +148,16 @@ export const inspections = pgTable(
     zoneId: uuid('zone_id')
       .notNull()
       .references(() => zones.id),
-    uploadedBy: uuid('uploaded_by')
-      .notNull()
-      .references(() => users.id),
+    uploadedBy: uuid('uploaded_by').references(() => users.id),
     status: text('status').notNull().default('QUEUED'),
     mode: text('mode').notNull(),
     storageKey: text('storage_key').notNull(),
     originalName: text('original_name').notNull(),
     width: integer('width').notNull(),
     height: integer('height').notNull(),
+    requirements: jsonb('requirements')
+      .notNull()
+      .default({ helmetRequired: true, vestRequired: true }),
     result: jsonb('result'),
     error: text('error'),
     imageDeleted: boolean('image_deleted').notNull().default(false),
@@ -207,9 +208,7 @@ export const reviews = pgTable(
     inspectionId: uuid('inspection_id')
       .notNull()
       .references(() => inspections.id, { onDelete: 'cascade' }),
-    reviewerId: uuid('reviewer_id')
-      .notNull()
-      .references(() => users.id),
+    reviewerId: uuid('reviewer_id').references(() => users.id),
     findings: jsonb('findings').notNull(),
     note: text('note').notNull(),
     createdAt: at('created_at'),
@@ -273,9 +272,7 @@ export const alertActions = pgTable('alert_actions', {
   alertId: uuid('alert_id')
     .notNull()
     .references(() => alerts.id, { onDelete: 'cascade' }),
-  userId: uuid('user_id')
-    .notNull()
-    .references(() => users.id),
+  userId: uuid('user_id').references(() => users.id),
   action: text('action').notNull(),
   note: text('note').notNull(),
   override: boolean('override').notNull().default(false),

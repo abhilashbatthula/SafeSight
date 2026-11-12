@@ -14,7 +14,6 @@ function start(name, cmd, args, cwd = root) {
       ...process.env,
       NEXT_TELEMETRY_DISABLED: '1',
       STORAGE_DIR: path.resolve(process.env.STORAGE_DIR || '.runtime/uploads'),
-      FIXTURE_DIR: path.resolve('services/inference/fixtures'),
     },
     stdio: ['ignore', log, log],
     detached: true,
@@ -53,7 +52,7 @@ start('api', 'pnpm', ['--filter', '@safesight/api', 'dev']);
 start('web', 'pnpm', ['--filter', '@safesight/web', 'dev']);
 start('proxy', 'node', ['scripts/proxy.mjs']);
 console.log(
-  'SafeSight starting at http://localhost:8080 · logs: .runtime/logs/ · credentials: .runtime/dev-credentials.json',
+  'SafeSight starting at http://localhost:8080 · logs: .runtime/logs/',
 );
 process.on('SIGINT', () => stop());
 process.on('SIGTERM', () => stop());

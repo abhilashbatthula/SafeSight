@@ -1,0 +1,5 @@
+WIN95FA / W95FA by Alina Sava. SIL Open Font License 1.1.
+Unmodified web font supplied by @fontsource/win95fa 5.3.0.
+Author/source: https://fontsarena.com/w95fa-by-alina-sava/
+Distribution: https://fontsource.org/fonts/win95fa
+License: LICENSE-WIN95FA.txt in this directory.

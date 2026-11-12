@@ -4,13 +4,10 @@ dist
 .venv
 .runtime
 pnpm-lock.yaml
-SafeSight_Codex_Build_Prompt.md
 playwright-report
 test-results
 *.py
 
 **/.next-production/
-
-services/inference/fixtures/manifest.json
 
 **/next-env.d.ts

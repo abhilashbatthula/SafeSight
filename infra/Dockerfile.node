@@ -10,5 +10,5 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm build
-ENV NODE_ENV=production APP_MODE=prototype NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production APP_MODE=workspace NEXT_TELEMETRY_DISABLED=1
 CMD ["pnpm", "--filter", "@safesight/api", "start"]

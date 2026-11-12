@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
+import Application from '@/components/application';
 import './globals.css';
 export const metadata: Metadata = {
-  title: 'SafeSight · Industrial Safety Analytics',
+  title: 'SafeSight · Safety Workspace',
   description:
-    'Industrial safety decision-support prototype. Simulated environmental readings and timestamped PPE inspections.',
+    'Windows 95 desktop for human PPE and machinery safety analysis.',
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Application />
+        {children}
+      </body>
     </html>
   );
 }

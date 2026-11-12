@@ -1,19 +1,38 @@
+# Dependencies and build output
 node_modules/
 .next/
+.next-production/
 dist/
-.venv/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local configuration, private data and downloaded weights
 .env
 .env.*
 !.env.example
 .runtime/
+models/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments and caches
+.venv/
+.venv-*/
 __pycache__/
 *.pyc
-models/
+.pytest_cache/
+.ruff_cache/
+
+# Test output and local editor/OS files
 playwright-report/
 test-results/
-*.tsbuildinfo
-
-**/.next-production/
-.venv-*/
-
-**/next-env.d.ts
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

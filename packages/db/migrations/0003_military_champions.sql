@@ -1,0 +1,1 @@
+ALTER TABLE "inspections" ADD COLUMN "requirements" jsonb DEFAULT '{"helmetRequired":true,"vestRequired":true}'::jsonb NOT NULL;

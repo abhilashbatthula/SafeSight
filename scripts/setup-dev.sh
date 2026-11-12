@@ -16,7 +16,7 @@ fi
 pnpm install --frozen-lockfile
 python3 -m venv .venv
 .venv/bin/pip install -r services/inference/requirements.lock
-.venv/bin/python services/inference/make_fixtures.py
 docker compose --env-file .env -f infra/compose.yaml up -d --wait db
 pnpm db:migrate
 pnpm db:seed
+printf '%s\n' 'Setup complete. Configure a free-tier GEMINI_API_KEY in .env, then run pnpm dev.'

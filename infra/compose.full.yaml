@@ -5,11 +5,10 @@ services:
       dockerfile: infra/Dockerfile.inference
     environment:
       INFERENCE_KEY: ${INFERENCE_KEY}
-      INFERENCE_MODE: ${INFERENCE_MODE:-DEMO}
-      MODEL_PATH: ${MODEL_PATH:-}
-      MODEL_VERSION: ${MODEL_VERSION:-}
-      MODEL_LICENSE: ${MODEL_LICENSE:-}
-      MODEL_PROVENANCE: ${MODEL_PROVENANCE:-}
+      INFERENCE_MODE: ${INFERENCE_MODE:-REAL}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.1-flash-lite}
+      GEMINI_BASE_URL: ${GEMINI_BASE_URL:-https://generativelanguage.googleapis.com/v1beta}
     healthcheck:
       test:
         [
@@ -28,14 +27,14 @@ services:
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       NODE_ENV: production
-      APP_MODE: prototype
+      APP_MODE: workspace
+      APP_FACILITY_ID: ${APP_FACILITY_ID:-10000000-0000-4000-8000-000000000001}
       API_HOST: 0.0.0.0
       INFERENCE_URL: http://inference:8001
       INFERENCE_KEY: ${INFERENCE_KEY}
-      INFERENCE_MODE: ${INFERENCE_MODE:-DEMO}
+      INFERENCE_MODE: ${INFERENCE_MODE:-REAL}
       STORAGE_ADAPTER: ${STORAGE_ADAPTER:-local}
       STORAGE_DIR: /app/.runtime/uploads
-      FIXTURE_DIR: /app/services/inference/fixtures
       CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-}
       CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY:-}
       CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET:-}
